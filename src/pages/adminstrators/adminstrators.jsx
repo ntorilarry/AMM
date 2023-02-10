@@ -34,7 +34,7 @@ function Adminstrators() {
     <div className='p-4'>
       <div className='statistic'>
         <h3 className='text-2xl dark:text-white font-semibold my-3'>Adminstrators</h3>
-     <AdminPage/>
+        <AdminPage/>
       </div>
     </div>
   )

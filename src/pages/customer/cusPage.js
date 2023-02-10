@@ -11,11 +11,12 @@ function CusPage() {
       setLoading(true);
       try {
         const { data: response } = await axios.get(
-          "https://17342957-dc51-4e0d-a522-70a39005b266.mock.pstmn.io/api/v1/customers",
+          "http://127.0.0.1:3000/api/v1/customers",
           {
             headers: {
               "Content-Type": "application/json",
               "X-Channel": "portal",
+              "X-Portal-ApiKey": "61fd0c77d18af8f78b94b21a"
             },
           }
         );
@@ -26,7 +27,6 @@ function CusPage() {
       }
       setLoading(false);
     };
-
     fetchData();
   }, []);
 

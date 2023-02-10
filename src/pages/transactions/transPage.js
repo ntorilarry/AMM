@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Table, { SelectColumnFilter, StatusPill } from "../customer/cusPage"; // new
+import Table, { SelectColumnFilter, StatusPill } from "./transTable"; // new
 
 function TransPage() {
   const [data, setData] = useState([]);
@@ -11,11 +11,12 @@ function TransPage() {
       setLoading(true);
       try {
         const { data: response } = await axios.get(
-          "https://93b16ced-3206-4b7e-b353-592c04cacc00.mock.pstmn.io/api/v1/transactions",
+          "http://127.0.0.1:3000/api/v1/transactions",
           {
             headers: {
               "Content-Type": "application/json",
               "X-Channel": "portal",
+              "X-Portal-ApiKey": "61fd0c77d18af8f78b94b21a"
             },
           }
         );

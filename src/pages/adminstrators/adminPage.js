@@ -22,7 +22,7 @@ function AdminPage() {
           {
             headers: {
               "Content-Type": "application/json",
-              "X-App-Token": "28f4bf7f-97ee-4664-9be0-6ffd81fb76be",
+              "X-App-Token": "28f4bf7f-97ee-4664-9be0-6ffd81fb76be"
             },
           }
         );
@@ -35,18 +35,18 @@ function AdminPage() {
     };
 
     fetchData();
-  });
+  }, []);
 
   const columns = React.useMemo(
     () => [
       {
         Header: "First Name",
-        accessor: "firstname",
+        accessor: "first_name",
       },
 
       {
         Header: "Other Name",
-        accessor: "othername",
+        accessor: "other_names",
       },
       {
         Header: "E-mail",
@@ -55,24 +55,24 @@ function AdminPage() {
 
       {
         Header: "Role",
-        accessor: "role",
-        Filter: SelectColumnFilter, // new
-        filter: "includes",
+        accessor: "username",
+        // Filter: SelectColumnFilter, 
+        // filter: "includes",
       },
       {
         Header: "Date",
-        accessor: "lastlogin",
+        accessor: "created_at",
       },
-      {
-        Header: "Status",
-        accessor: "status",
-        Cell: StatusPill,
-      },
+      // {
+      //   Header: "Status",
+      //   accessor: "status",
+      //   Cell: StatusPill,
+      // },
 
-      {
-        Header: "Details",
-        accessor: "details",
-      },
+      // {
+      //   Header: "Details",
+      //   accessor: "details",
+      // },
     ],
     []
   );
@@ -277,9 +277,11 @@ function AdminPage() {
             ) : null}
           </>
         </div>
-        <div className="mt-6">
+        {loading && <div>Loading</div>}
+        {!loading && (
+         <div className="mt-6">
           <Table columns={columns} data={data.data} />
-        </div>
+        </div> )}
       </main>
     </div>
   );
